@@ -8,7 +8,7 @@ import pandas as pd
 import numpy as np
 from dotenv import load_dotenv, dotenv_values 
 load_dotenv()
-from trasholdCalculat import getIoUvsThreshold
+from thresholdCalculator import getIoUvsThreshold
 
 folderPath = {
     "sourceImages" : os.getenv("SOURCE_IMAGES"),
@@ -61,7 +61,7 @@ def extractMetricsForImages(folderPath, fileNameExtra, QC_name, QC_path):
                 
                 # Write the results in the CSV file
                 writer.writerow([filename, str(best_IoU_score), str(best_threshold), str(best_IoU_score_fiji), str(best_threshold_fiji)])
-                print(f'Unet, score: {best_IoU_score} thras: {best_threshold}, ff score: {best_IoU_score_fiji}, thras: {best_threshold_fiji}')
+                print(f'Unet, score: {best_IoU_score} thres: {best_threshold}, ff score: {best_IoU_score_fiji}, thres: {best_threshold_fiji}')
                 # Here we append the best threshold and score to the lists
                 filename_list.append(filename)
                 uNet_IoU_score_list.append(best_IoU_score)
